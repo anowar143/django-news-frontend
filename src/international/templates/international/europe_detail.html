@@ -1,0 +1,10 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+  <h1>{{ europe.title }}</h1>
+  <img src="{{ europe.image.url}}" alt="{{ europe.title }}">
+  <p> {{ europe.summary }}</p>
+  <p> {{ europe.updated_at }}</p>
+
+{% endblock %}

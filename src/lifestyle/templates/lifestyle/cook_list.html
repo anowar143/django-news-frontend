@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Cook</h1>
+  {% if cook_list %}
+  <ul>
+    {% for cook in cook_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ cook.get_absolute_url }}">{{ cook.title }}</a>
+        <img src="{{ cook.image.url}}" alt="{{ cook.title }}">
+        <p> {{ cook.summary }}  <b> {{ cook.updated_at }}</b></p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

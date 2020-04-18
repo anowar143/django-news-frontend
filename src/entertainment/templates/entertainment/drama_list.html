@@ -1,0 +1,26 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Drama</h1>
+  {% if drama_list %}
+  <ul>
+    {% for drama in drama_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ drama.get_absolute_url }}">{{ drama.title }}</a>
+        <img src="{{ drama.image.url}}" alt="{{ drama.title }}">
+        <p> {{ drama.summary }} <b> {{ drama.updated_at }}</b> </p>
+
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

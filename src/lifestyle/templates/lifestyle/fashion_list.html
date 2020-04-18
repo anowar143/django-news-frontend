@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Fashion</h1>
+  {% if fashion_list %}
+  <ul>
+    {% for fashion in fashion_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ fashion.get_absolute_url }}">{{ fashion.title }}</a>
+        <img src="{{ fashion.image.url}}" alt="{{ fashion.title }}">
+        <p> {{ fashion.summary }} <b> {{ fashion.updated_at }}</b> </p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

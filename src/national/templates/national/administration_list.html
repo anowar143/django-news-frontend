@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Administration</h1>
+  {% if administration_list %}
+  <ul>
+    {% for administration in administration_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ administration.get_absolute_url }}">{{ administration.title }}</a>
+        <img src="{{ administration.image.url}}" alt="{{ administration.title }}">
+        <p> {{ administration.summary }} <b> {{ administration.updated_at }}</b> </p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

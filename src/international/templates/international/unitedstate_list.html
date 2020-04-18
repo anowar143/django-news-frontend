@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Unitedstate</h1>
+  {% if unitedstate_list %}
+  <ul>
+    {% for unitedstate in unitedstate_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ unitedstate.get_absolute_url }}">{{ unitedstate.title }}</a>
+        <img src="{{ unitedstate.image.url}}" alt="{{ unitedstate.title }}">
+        <p> {{ unitedstate.summary }} <b> {{ unitedstate.updated_at }}</b> </p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

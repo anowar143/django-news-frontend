@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Movie</h1>
+  {% if movie_list %}
+  <ul>
+    {% for movie in movie_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ movie.get_absolute_url }}">{{ movie.title }}</a>
+        <img src="{{ movie.image.url}}" alt="{{ movie.title }}">
+        <p> {{ movie.summary }}<b> {{ movie.updated_at }}</b> </p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

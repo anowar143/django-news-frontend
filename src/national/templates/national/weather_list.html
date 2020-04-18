@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Weather</h1>
+  {% if weather_list %}
+  <ul>
+    {% for weather in weather_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ weather.get_absolute_url }}">{{ weather.title }}</a>
+        <img src="{{ weather.image.url}}" alt="{{ weather.title }}">
+        <p> {{ weather.summary }} <b> {{ weather.updated_at }}</b> </p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

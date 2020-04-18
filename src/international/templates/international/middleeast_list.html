@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Middleeast</h1>
+  {% if middleeast_list %}
+  <ul>
+    {% for middleeast in middleeast_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ middleeast.get_absolute_url }}">{{ middleeast.title }}</a>
+        <img src="{{ middleeast.image.url}}" alt="{{ middleeast.title }}">
+        <p> {{ middleeast.summary }} <b> {{ middleeast.updated_at }}</b></p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

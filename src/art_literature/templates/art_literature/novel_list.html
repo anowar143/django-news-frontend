@@ -1,0 +1,26 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Novel</h1>
+  {% if novel_list %}
+  <ul>
+    {% for novel in novel_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ novel.get_absolute_url }}">{{ novel.title }}</a>
+        <img src="{{ novel.image.url}}" alt="{{ novel.title }}">
+        <p> {{ novel.summary }} <b> ..{{ novel.updated_at }}</b> </p>
+
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

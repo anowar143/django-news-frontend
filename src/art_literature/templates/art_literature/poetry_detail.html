@@ -1,0 +1,10 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+  <h1>{{ poetry.title }}</h1>
+  <img src="{{ poetry.image.url}}" alt="{{ poetry.title }}">
+  <p> {{ poetry.summary }}</p>
+  <p> {{ poetry.updated_at }}</p>
+
+{% endblock %}

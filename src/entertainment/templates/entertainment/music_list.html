@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Music</h1>
+  {% if music_list %}
+  <ul>
+    {% for music in music_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ music.get_absolute_url }}">{{ music.title }}</a>
+        <img src="{{ music.image.url}}" alt="{{ music.title }}">
+        <p> {{ music.summary }} <b> {{ music.updated_at }}</b></p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

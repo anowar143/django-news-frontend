@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Health</h1>
+  {% if health_list %}
+  <ul>
+    {% for health in health_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ health.get_absolute_url }}">{{ health.title }}</a>
+        <img src="{{ health.image.url}}" alt="{{ health.title }}">
+        <p> {{ health.summary }}  <b> {{ health.updated_at }}</b> </p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

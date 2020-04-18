@@ -1,0 +1,10 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+  <h1>{{ ramadan.title }}</h1>
+  <img src="{{ ramadan.image.url}}" alt="{{ ramadan.title }}">
+  <p> {{ ramadan.summary }}</p>
+  <p> {{ ramadan.updated_at }}</p>
+
+{% endblock %}

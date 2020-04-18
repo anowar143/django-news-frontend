@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Tennis</h1>
+  {% if tennis_list %}
+  <ul>
+    {% for tennis in tennis_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ tennis.get_absolute_url }}">{{ tennis.title }}</a>
+        <img src="{{ tennis.image.url}}" alt="{{ tennis.title }}">
+        <p> {{ tennis.summary }} <b> {{ tennis.updated_at }}</b> </p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

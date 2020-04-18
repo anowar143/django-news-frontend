@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Ramadan</h1>
+  {% if ramadan_list %}
+  <ul>
+    {% for ramadan in ramadan_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ ramadan.get_absolute_url }}">{{ ramadan.title }}</a>
+        <img src="{{ ramadan.image.url}}" alt="{{ ramadan.title }}">
+        <p> {{ ramadan.summary }} <b> {{ ramadan.updated_at }}</b> </p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

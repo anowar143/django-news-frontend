@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Cricket</h1>
+  {% if cricket_list %}
+  <ul>
+    {% for cricket in cricket_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ cricket.get_absolute_url }}">{{ cricket.title }}</a>
+        <img src="{{ cricket.image.url}}" alt="{{ cricket.title }}">
+        <p> {{ cricket.summary }} <b> {{ cricket.updated_at }}</b> </p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

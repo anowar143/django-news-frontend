@@ -1,0 +1,26 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Story</h1>
+  {% if story_list %}
+  <ul>
+    {% for story in story_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ story.get_absolute_url }}">{{ story.title }}</a>
+        <img src="{{ story.image.url}}" alt="{{ story.title }}">
+        <p> {{ story.summary }} </p>
+        <b> {{ story.updated_at }}</b>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

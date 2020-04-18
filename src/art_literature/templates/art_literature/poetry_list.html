@@ -1,0 +1,26 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Poetry</h1>
+  {% if poetry_list %}
+  <ul>
+    {% for poetry in poetry_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ poetry.get_absolute_url }}">{{ poetry.title }}</a>
+        <img src="{{ poetry.image.url}}" alt="{{ poetry.title }}">
+        <p> {{ poetry.summary }} </p>
+        <b> {{ poetry.updated_at }}</b>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Parliament</h1>
+  {% if parliament_list %}
+  <ul>
+    {% for parliament in parliament_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ parliament.get_absolute_url }}">{{ parliament.title }}</a>
+        <img src="{{ parliament.image.url}}" alt="{{ parliament.title }}">
+        <p> {{ parliament.summary }}  <b> {{ parliament.updated_at }}</b> </p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

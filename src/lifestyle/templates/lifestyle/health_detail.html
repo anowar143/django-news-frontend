@@ -1,0 +1,10 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+  <h1>{{ health.title }}</h1>
+  <img src="{{ health.image.url}}" alt="{{ health.title }}">
+  <p> {{ health.summary }}</p>
+  <p> {{ health.updated_at }}</p>
+
+{% endblock %}

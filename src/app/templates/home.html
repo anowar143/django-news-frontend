@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block title %}<title>News Portal</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content​=​"​width=device-width, initial-scale=1">
+  <link rel="stylesheet" href​=​"​https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css​" integrity​=​"​sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO​" crossorigin​=​"​anonymous​"​>
+  <!-- Add additional CSS in static file -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}"></head>
+<body>
+  <div class​=​"​container-fluid​"​>
+    <div class="row">
+      <div class="col-sm-2">
+      {% block sidebar %}
+          <div class="dropdown show">
+
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <ul>
+
+
+                      <li>
+                          <a href="">National</a>
+                          <ul class="dropdown">
+                              <li><a class="dropdown-item" href="{% url 'politics' %}">Politic</a></li>
+                              <li><a class="dropdown-item" href="{% url 'crimes' %}"​>Crime</a></li>
+                              <li><a class="dropdown-item" href="{% url 'administrations' %}">Administration</a></li>
+                              <li><a class="dropdown-item" href="{% url 'parliaments' %}">Parliament</a></li>
+                              <li><a class="dropdown-item" href="{% url 'educations' %}">Education</a></li>
+                              <li><a class="dropdown-item" href="{% url 'weathers' %}">Weather</a></li>
+
+                          </ul>
+                      </li>
+
+
+
+
+
+                     <li>
+                          <a href="">International</a>
+                          <ul class="dropdown">
+                              <li><a class="dropdown-item" href="{% url 'subcontinents' %}">Subcontinent</a></li>
+                              <li><a class="dropdown-item" href="{% url 'asias' %}"​>Asia</a></li>
+                              <li><a class="dropdown-item" href="{% url 'middleeasts' %}">MiddleEast</a></li>
+                              <li><a class="dropdown-item" href="{% url 'unitedstates' %}">UnitedState</a></li>
+                              <li><a class="dropdown-item" href="{% url 'europes' %}">Europe</a></li>
+                              <li><a class="dropdown-item" href="{% url 'internationalorganizations' %}">InternationalOrganization</a></li>
+                          </ul>
+                      </li>
+
+
+
+
+
+                      <li>
+                          <a href="">Sport</a>
+                          <ul class="dropdown">
+                              <li><a class="dropdown-item" href="{% url 'crickets' %}">Cricket</a></li>
+                              <li><a class="dropdown-item" href="{% url 'footballs' %}"​>Football</a></li>
+                              <li><a class="dropdown-item" href="{% url 'tennises' %}">Tennis</a></li>
+                              <li><a class="dropdown-item" href="{% url 'swimmings' %}">Swimming</a></li>
+                              <li><a class="dropdown-item" href="{% url 'hockies' %}">Hockey</a></li>
+                          </ul>
+                      </li>
+
+
+
+
+
+
+
+
+                      <li>
+                          <a href="">Lifestyle</a>
+                          <ul class="dropdown">
+                              <li><a class="dropdown-item" href="{% url 'healths' %}">Health</a></li>
+                              <li><a class="dropdown-item" href="{% url 'fashions' %}"​>Fashion</a></li>
+                              <li><a class="dropdown-item" href="{% url 'cooks' %}">Cook</a></li>
+                          </ul>
+                      </li>
+
+
+
+
+
+                      <li>
+                          <a href="">Entertainment</a>
+                          <ul class="dropdown">
+                              <li><a class="dropdown-item" href="{% url 'movies' %}">Movie</a></li>
+                              <li><a class="dropdown-item" href="{% url 'dramas' %}"​>Drama</a></li>
+                              <li><a class="dropdown-item" href="{% url 'musics' %}">Music</a></li>
+                          </ul>
+                      </li>
+
+
+
+
+
+
+
+                      <li>
+                          <a href="">Art and Literature</a>
+                          <ul class="dropdown">
+                              <li><a class="dropdown-item" href="{% url 'poetries' %}">Poetry</a></li>
+                              <li><a class="dropdown-item" href="{% url 'stories' %}"​>Story</a></li>
+                              <li><a class="dropdown-item" href="{% url 'novels' %}">Novel</a></li>
+                          </ul>
+                      </li>
+
+
+
+
+
+
+
+                      <li>
+                          <a href="">Other</a>
+                          <ul class="dropdown">
+                              <li><a class="dropdown-item" href="{% url 'ramadans' %}">Ramadan</a></li>
+                              <li><a class="dropdown-item" href="{% url 'features' %}"​>Feature</a></li>
+                          </ul>
+                      </li>
+
+
+
+
+
+                 </ul>
+              </div>
+          </div>
+      {% endblock %}
+      </div>
+      <div class="col-sm-10 ">{% block content %}{% endblock %}
+
+      {% block pagination %}
+    {% if is_paginated %}
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+  {% endblock %}
+
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

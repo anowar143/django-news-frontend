@@ -1,0 +1,10 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+  <h1>{{ parliament.title }}</h1>
+  <img src="{{ parliament.image.url}}" alt="{{ parliament.title }}">
+  <p> {{ parliament.summary }}</p>
+  <p> {{ parliament.updated_at }}</p>
+
+{% endblock %}

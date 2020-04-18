@@ -1,0 +1,24 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Politic</h1>
+  {% if politic_list %}
+  <ul>
+    {% for politic in politic_list %}
+    <div class="menu">
+        <li>
+            <a href="{{ politic.get_absolute_url }}"> <b>{{ politic.title }}</b> </a>
+            <img src="{{ politic.image.url}}" alt="{{ politic.title }}">
+            <p> {{ politic.summary|truncatewords:"15" }} <b> {{politic.updated_at}}</b> </p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

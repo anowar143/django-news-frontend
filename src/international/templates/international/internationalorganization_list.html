@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Internationalorganization</h1>
+  {% if internationalorganization_list %}
+  <ul>
+    {% for internationalorganization in internationalorganization_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ internationalorganization.get_absolute_url }}">{{ internationalorganization.title }}</a>
+        <img src="{{ internationalorganization.image.url}}" alt="{{ internationalorganization.title }}">
+        <p> {{ internationalorganization.summary }}<b> {{ internationalorganization.updated_at }}</b> </p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

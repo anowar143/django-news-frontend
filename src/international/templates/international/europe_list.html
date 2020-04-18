@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Europe</h1>
+  {% if europe_list %}
+  <ul>
+    {% for europe in europe_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ europe.get_absolute_url }}">{{ europe.title }}</a>
+        <img src="{{ europe.image.url}}" alt="{{ europe.title }}">
+        <p> {{ europe.summary }} <b> {{ europe.updated_at }}</b> </p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

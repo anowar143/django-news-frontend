@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Swimming</h1>
+  {% if swimming_list %}
+  <ul>
+    {% for swimming in swimming_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ swimming.get_absolute_url }}">{{ swimming.title }}</a>
+        <img src="{{ swimming.image.url}}" alt="{{ swimming.title }}">
+        <p> {{ swimming.summary }} <b> {{ swimming.updated_at }}</b> </p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Education</h1>
+  {% if education_list %}
+  <ul>
+    {% for education in education_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ education.get_absolute_url }}">{{ education.title }}</a>
+        <img src="{{ education.image.url}}" alt="{{ education.title }}">
+        <p> {{ education.summary }} <b> {{ education.updated_at }}</b> </p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

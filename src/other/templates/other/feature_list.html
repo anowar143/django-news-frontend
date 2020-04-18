@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Feature</h1>
+  {% if feature_list %}
+  <ul>
+    {% for feature in feature_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ feature.get_absolute_url }}">{{ feature.title }}</a>
+        <img src="{{ feature.image.url}}" alt="{{ feature.title }}">
+        <p> {{ feature.summary }} <b> {{ feature.updated_at }}</b> </p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

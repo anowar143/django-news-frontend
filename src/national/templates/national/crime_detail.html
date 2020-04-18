@@ -1,0 +1,10 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+  <h1>{{ crime.title }}</h1>
+  <img src="{{ crime.image.url}}" alt="{{ crime.title }}">
+  <p> {{ crime.summary }}</p>
+  <p> {{ crime.updated_at }}</p>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Crime</h1>
+  {% if crime_list %}
+  <ul>
+    {% for crime in crime_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ crime.get_absolute_url }}">{{ crime.title }}</a>
+        <img src="{{ crime.image.url}}" alt="{{ crime.title }}">
+        <p> {{ crime.summary }} <b> {{ crime.updated_at }}</b></p>
+
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h1>Subcontinent</h1>
+  {% if subcontinent_list %}
+  <ul>
+    {% for subcontinent in subcontinent_list %}
+    <div class="menu">
+
+      <li>
+        <a href="{{ subcontinent.get_absolute_url }}">{{ subcontinent.title }}</a>
+        <img src="{{ subcontinent.image.url}}" alt="{{ subcontinent.title }}">
+        <p> {{ subcontinent.summary }} <b> {{ subcontinent.updated_at }}</b></p>
+
+      </li>
+
+    </div>
+
+    {% endfor %}
+  </ul>
+
+  {% else %}
+    <p>There are no news in the web.</p>
+  {% endif %}
+{% endblock %}
