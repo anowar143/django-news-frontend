@@ -1,4 +1,4 @@
-django==2.2
+django==2.2.21
 psycopg2-binary==2.8.4
 django-jet==1.0.8
 pillow==7.1.1
